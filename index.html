@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#513446">
+  <meta name="description" content="Romance Academy 7: пиксельная романтическая история. Знакомьтесь с персонажами, исследуйте академию и выбирайте свою историю.">
+  <title>Romance Academy 7 · Rokko System</title>
+  <link rel="icon" href="assets/carryinbooktalk_03.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="story.js" defer></script>
+  <script src="engine.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <button class="brand" id="home-button" aria-label="Главное меню"><span class="brand-heart">♥</span><span>ROMANCE ACADEMY <b>7</b><small>ROKKO SYSTEM · WEB EDITION</small></span></button>
+      <nav aria-label="Навигация"><button id="map-button">⌘ <span>Академия</span></button><button id="journal-button">▤ <span>Дневник</span></button><button id="settings-button">⚙ <span>Настройки</span></button></nav>
+      <span class="system-status"><i></i> SYSTEM ONLINE</span>
+    </header>
+    <main>
+      <div class="page-heading"><div><span class="eyebrow">A LITTLE PIXEL WORLD. A LOT OF FEELINGS.</span><h1>Твоя история начинается здесь<span>✧</span></h1></div><div class="edition">EST. 2000<br><b>RECONNECTED / 2026</b></div></div>
+      <div class="game-layout">
+        <section class="game-window" aria-label="Игровая сцена">
+          <div class="window-bar"><span><i></i> <span id="window-title">ROMANCE_ACADEMY.exe</span></span><span aria-hidden="true">— &nbsp; □ &nbsp; ×</span></div>
+          <div class="stage" id="stage">
+            <div class="scene-background" id="scene-background"></div><div class="scene-shade"></div>
+            <div class="scene-meta"><span id="location-label">ROMANTSU MAHO ACADEMY</span><span id="clock-label">DAY 01 / 09:00</span></div>
+            <div class="petals" aria-hidden="true"><span>✦</span><span>♥</span><span>✧</span><span>✦</span></div>
+            <img id="character-sprite" class="character-sprite" src="assets/carryinbooktalk_03.png" alt="Giffany с книгами">
+            <div class="welcome" id="welcome">
+              <span class="welcome-tag">WELCOME BACK, PLAYER ONE</span>
+              <h2>Romance<br>Academy<span>7</span></h2>
+              <p>Новая школа. Странные совпадения.<br>И кое-кто, кто уже ждал тебя.</p>
+              <button class="primary" id="start-button">Начать историю <span>↗</span></button>
+              <button class="text-button" id="continue-button" hidden>↳ Продолжить сохранённую игру</button>
+              <span class="welcome-note">ТВОЙ ВЫБОР МЕНЯЕТ ОТНОШЕНИЯ</span>
+            </div>
+            <section id="dialogue-panel" class="dialogue-panel" hidden aria-label="Диалог">
+              <div class="speaker-tab" id="speaker">GIFFANY <span>♥</span></div>
+              <p id="dialogue-text" aria-live="polite"></p>
+              <div id="choices" class="choices"></div>
+              <button id="next-button" class="next-button">Далее <span>▸</span></button>
+            </section>
+            <div id="reward" class="reward" aria-live="polite"></div>
+          </div>
+          <div class="game-toolbar"><span><i></i> <span id="save-status">ГОТОВО К НОВОЙ ИСТОРИИ</span></span><div><button id="auto-button" aria-pressed="false">AUTO</button><button id="history-button">ИСТОРИЯ</button><button id="save-button">СОХРАНИТЬ</button><button id="sound-button" aria-label="Включить музыку" aria-pressed="false">♫ OFF</button><button id="fullscreen-button" aria-label="Полный экран">⛶</button></div></div>
+        </section>
+        <aside class="sidebar">
+          <section class="player-card"><span class="eyebrow">PLAYER PROFILE</span><div class="player-name"><span class="avatar">✦</span><div><h2 id="player-name">Новый ученик</h2><span id="player-subtitle">Твоя история ещё впереди</span></div><button id="profile-button" aria-label="Изменить имя">✎</button></div><div class="player-stats"><div><b id="day-stat">01</b><span>ДЕНЬ</span></div><div><b id="charisma-stat">00</b><span>ХАРИЗМА</span></div><div><b id="scene-stat">00</b><span>ВСТРЕЧИ</span></div></div></section>
+          <section class="connections"><div class="section-caption"><h2>Твои связи</h2><span>♥</span></div><div id="relationships"></div></section>
+          <section class="note-card"><span class="note-pin">✧</span><span class="eyebrow">НА ЗАМЕТКУ</span><p id="quest-text">Каждая история начинается с простого «привет».</p><span class="note-signature">— дневник академии</span></section>
+          <button class="chat-shortcut" id="chat-button"><span>✉</span><div>Поговорим?<small>Сообщение для Giffany</small></div><span>↗</span></button>
+        </aside>
+      </div>
+      <footer><span><span class="tiny-heart">♥</span> MADE OF PIXELS & POSSIBILITIES</span><span>Пробел — далее <b>·</b> Esc — закрыть окно <b>·</b> Прогресс сохраняется автоматически</span><span>RA7 / v1.0</span></footer>
+    </main>
+  </div>
+  <dialog id="modal"><div class="modal-top"><h2 id="modal-title"></h2><button id="close-modal" aria-label="Закрыть">×</button></div><div id="modal-content"></div></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <audio id="music" loop preload="none"></audio>
+  <audio id="chime" src="assets/dingbill.wav" preload="none"></audio>
+</body>
+</html>
